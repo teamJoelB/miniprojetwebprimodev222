@@ -54,7 +54,7 @@
         <br><h1><center>Espace membres</center></h1>
         <div class="connexion-block">
             <div class="card p-3 z-depth-5">
-                <form action ="login" method="POST">
+                <form action ="ClientConnexionServlet" method="POST">
                     <div class="md-form">
                         <input type="text" placeholder="Login" name="login" value="${param['login']}" class="form_control">
                     </div>

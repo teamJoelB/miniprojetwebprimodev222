@@ -56,7 +56,7 @@
         <h1><center>Espace Conseillers</center></h1>
         <div class="connexion-block">
             <div class="card p-3 z-depth-5">
-                <form action ="login" method="POST">
+                <form action ="ConseillerConnexionServlet" method="POST">
                     <div class="md-form">
                         <input type="text" placeholder="Mail" name="mail" value="${param['mail']}" class="form_control">
                     </div>
