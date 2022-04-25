@@ -42,7 +42,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"> Conseiller ${user.prenom} ${user.nom}</a>
+    <a class="navbar-brand" href="#"> Conseiller ${Conseiller.prenom} ${Conseiller.nom}</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -63,7 +63,7 @@
           <a class="nav-link" href="ConseillerModifierProfitServlet">Gestion du compte</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Deconnexion</a>
+          <a class="nav-link" href="DeconnexionServlet">Deconnexion</a>
         </li>
 
       </ul>
@@ -92,7 +92,7 @@
       <input
         type="search"
         class="form-control rounded"
-        placeholder="Recherche Client (Nom Prenon)"
+        placeholder="Recherche Client (Nom Prénom)"
         aria-label="Search"
         aria-describedby="search-addon"
       />

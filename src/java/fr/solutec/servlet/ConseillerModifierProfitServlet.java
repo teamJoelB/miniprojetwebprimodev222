@@ -89,7 +89,8 @@ public class ConseillerModifierProfitServlet extends HttpServlet {
         
         HttpSession session = request.getSession();
         Conseiller currentConseiller = (Conseiller) session.getAttribute("Conseiller");
-
+        
+        
         co.setNom(nom);
         co.setPrenom(prenom);
         co.setMail(mail);

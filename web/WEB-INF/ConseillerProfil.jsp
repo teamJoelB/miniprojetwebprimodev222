@@ -66,7 +66,7 @@
           <a class="nav-link active" aria-current="page" href="#">Menu</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Deconnexion</a>
+          <a class="nav-link" href="DeconnexionServlet">Deconnexion</a>
         </li>
 
       </ul>
@@ -85,7 +85,7 @@
     Mettre à jour le profils
     <br></br>
         
-                <form action="ClientModifierProfilServlet" method="POST">
+                <form action="ConseillerModifierProfitServlet" method="POST">
                     <div class="form-outline mb-4">Nom
                         <input type="text" placeholder="${Conseiller.nom}" name="nom" value="${Conseiller.nom}" class="form-control" /> 
                     </div>
