@@ -16,6 +16,7 @@ public class Conseiller {
     private LocalDate dateNaissance;
     private String telephone;
     private String mdp;
+    private boolean Valider;
     
     public Conseiller(){}
     
@@ -27,7 +28,8 @@ public class Conseiller {
         this.mail = mail;
         this.dateNaissance = dateNaissance;
         this.telephone = telephone;
-        this.mdp = mdp;        
+        this.mdp = mdp;
+        this.Valider = Valider;
     }
     
     public int getId(){
@@ -52,6 +54,10 @@ public class Conseiller {
         return this.mdp;
     }
     
+        public boolean getValider(){
+        return this.Valider;
+    }
+    
     public void setId(int idConseiller){
         this.idConseiller = idConseiller;
     }
@@ -74,4 +80,7 @@ public class Conseiller {
         this.mdp = mdp;
      }
     
+        public void setValider(boolean Valider){
+        this.Valider = Valider;
+    }
 }

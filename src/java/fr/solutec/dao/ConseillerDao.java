@@ -38,7 +38,7 @@ public class ConseillerDao {
      public static void updateConseiller(Conseiller co) throws SQLException{
         String sql = "UPDATE conseillers SET nom=?, prenom=?, mail=?,"
                    + "date_naissance=?, mdp=?, telephone=?"
-                   + "WHERE id_Conseiller=?";
+                   + "WHERE id_conseiller=?";
         Connection connexion = AccessDB.getConnection();
         
         PreparedStatement prepare = connexion.prepareStatement(sql);
@@ -46,8 +46,8 @@ public class ConseillerDao {
         prepare.setString(2, co.getPrenom());
         prepare.setString(3, co.getMail());
         prepare.setObject(4, co.getDateNaissance());
-        prepare.setString(5, co.getTelephone());
-        prepare.setString(6, co.getMdp());
+        prepare.setString(5, co.getMdp());
+        prepare.setString(6, co.getTelephone());
         prepare.setInt(7, co.getId());
         
         prepare.executeUpdate();
