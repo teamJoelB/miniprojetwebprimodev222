@@ -48,7 +48,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"> Conseiller ${user.prenom} ${user.nom}</a>
+    <a class="navbar-brand" href="PageConseiller"> Conseiller ${user.prenom} ${user.nom}</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -78,6 +78,24 @@
 
 <!--                                   Navbar                                        -->
         
-        
+<br></br>        
+
+<div class="box2">
+    Changer le mot de passe
+<div>
+    <div class="Changementdemotdepasse" for="username">Username:</div>
+    <input type="text" id="username" name="username">
+</div>
+
+<div>
+    <div class="Changementdemotdepasse" for="pass">Password (8 characters minimum):</div>
+    <input type="password" id="pass" name="password"
+           minlength="8" required>
+</div>
+
+<input type="submit" value="Sign in">
+
+</div>
+
     </body>
 </html>

@@ -116,3 +116,20 @@ label>span {
     width: 400px;
     margin-left: 50px;
 }
+
+.Changementdemotdepasse {
+    display: block;
+    font: .9rem 'Fira Sans', sans-serif;
+}
+
+input[type='submit'],
+.Changementdemotdepasse {
+    margin-top: 1rem;
+}
+
+.box2 {
+    border : 5px solid grey;
+    height: 220px;
+    width: 250px;
+    margin-left: 50px;
+}
