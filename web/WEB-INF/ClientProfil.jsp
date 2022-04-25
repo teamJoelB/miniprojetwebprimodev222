@@ -51,6 +51,7 @@
                     </div>
                     <div class="form-outline mb-4">
                         <input type="text" placeholder="${client.telephone}" name="telephone" value="${client.telephone}" class="form-control">
+                    </div>
                     <div class="form-outline mb-4">
                         <input type="password" placeholder="Nouveau MDP" name="mdp" class="form-control">
                     </div>

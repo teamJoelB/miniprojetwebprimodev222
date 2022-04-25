@@ -31,10 +31,34 @@
         <!-- MDB core JavaScript -->
         <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
-        
-        <title>Page d'accueil du client</title>
+
+        <title>PageClient</title>
     </head>
     <body>
-        <h1>TU ES BIEN SUR TA PAGE PERSO CLIENT</h1>
+        <div class="card p-3 z-depth-5">
+            <form action="ClientModifierProfilServlet" method="GET">
+                <h1> Mon profil </h1>
+                Nom ${client.nom} <br>
+                Prénom ${client.prenom} <br>
+                Mail ${client.mail} <br>
+                Date de naissance ${client.dateNaissance} <br>
+                Téléphone ${client.telephone} <br>
+                <button class="btn-primary"> Modifier profil </button>
+            </form>
+        </div>
+        <div class="card p-3 z-depth-5">
+            <form action="ClientAccesCompteServlet" method="GET">
+                <h1> Accès au compte </h1>
+                Solde  <br>
+                <button class="btn-primary"> Accéder au compte </button>
+            </form>
+        </div>
+        <div class="card p-3 z-depth-5">
+            <form action="ClientModifierProfilServlet" method="GET">
+                <h1> Contacter un conseiller </h1>
+                Solde  <br>
+                <button class="btn-primary"> Modifier profil </button>
+            </form>
+        </div>
     </body>
 </html>

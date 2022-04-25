@@ -9,6 +9,9 @@ import fr.solutec.dao.ClientDao;
 import fr.solutec.model.Client;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,12 +19,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author lucas
- */
-@WebServlet(name = "ClientConnexionServlet", urlPatterns = {"/ClientConnexionServlet"})
-public class ClientConnexionServlet extends HttpServlet {
+@WebServlet(name = "ClientAccesCompteServlet", urlPatterns = {"/ClientAccesCompteServlet"})
+public class ClientAccesCompteServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,15 +34,15 @@ public class ClientConnexionServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
+        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ClientServlet</title>");            
+            out.println("<title>Servlet ClientAccesCompteServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ClientServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ClientAccesCompteServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -61,8 +60,15 @@ public class ClientConnexionServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //request.getRequestDispatcher("WEB-INF/Client.jsp").forward(request, response);
-        request.getRequestDispatcher("loginMembre.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+        Client c = (Client) session.getAttribute("client");
+        try {
+            session.setAttribute("solde", ClientDao.getSolde(c));
+        } catch (SQLException ex) {
+            PrintWriter out = response.getWriter();
+            out.println(ex.getMessage());
+        }
+        request.getRequestDispatcher("WEB-INF/ClientCompte.jsp").forward(request, response);
     }
 
     /**
@@ -76,23 +82,7 @@ public class ClientConnexionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String mail = request.getParameter("mail");
-        String mdp = request.getParameter("mdp");
-
-        try {
-            Client c = ClientDao.getByMailAndPassword(mail, mdp);
-            if (c != null) {
-                HttpSession session = request.getSession();
-                session.setAttribute("client", c);
-                request.getRequestDispatcher("WEB-INF/Client.jsp").forward(request, response);
-            } else {
-                request.setAttribute("errorMsg", "Identifiant ou mot de passe incorrecte");
-                request.getRequestDispatcher("loginMembre.jsp").forward(request, response);
-            }
-        } catch (Exception e) {
-            PrintWriter out = response.getWriter();
-            out.println(e.getMessage());
-        }
+        processRequest(request, response);
     }
 
     /**
