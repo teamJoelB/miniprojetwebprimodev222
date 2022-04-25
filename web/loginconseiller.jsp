@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Bienvue sur la page de connexion Client</h1>
+        <h1>Bienvue sur la page de connexion Conseiller</h1>
         <div class="connexion-block">
             <div class="card p-3 z-depth-5">
                 <form action="ClientConnexionServlet" method="POST">
