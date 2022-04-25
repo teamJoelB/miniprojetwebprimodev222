@@ -87,22 +87,22 @@
         
                 <form action="ClientModifierProfilServlet" method="POST">
                     <div class="form-outline mb-4">Nom
-                        <input type="text" placeholder="${client.nom}" name="nom" value="${client.nom}" class="form-control" /> 
+                        <input type="text" placeholder="${Conseiller.nom}" name="nom" value="${Conseiller.nom}" class="form-control" /> 
                     </div>
                     <div class="form-outline mb-4">Prénom
-                        <input type="text" placeholder="${client.prenom}" name="prenom" value="${client.prenom}" class="form-control">
+                        <input type="text" placeholder="${Conseiller.prenom}" name="prenom" value="${Conseiller.prenom}" class="form-control">
                     </div>
                     <div class="form-outline mb-4">Mot de passe (8 characters minimum)
                         <input type="password" placeholder="Nouveau MDP" name="mdp" class="form-control">
                     </div>
                     <div class="form-outline mb-4">Mail
-                        <input type="mail" placeholder="${client.mail}" name="mail" value="${client.mail}" class="form-control">
+                        <input type="mail" placeholder="${Conseiller.mail}" name="mail" value="${Conseiller.mail}" class="form-control">
                     </div>
                     <div class="form-outline mb-4">Date de naissance
-                        <input type="date" placeholder="${client.dateNaissance}" name="dateNaissance" value="${client.dateNaissance}" class="form-control">
+                        <input type="date" placeholder="${Conseiller.dateNaissance}" name="dateNaissance" value="${Conseiller.dateNaissance}" class="form-control">
                     </div>
                     <div class="form-outline mb-4">Téléphone
-                        <input type="text" placeholder="${client.telephone}" name="telephone" value="${client.telephone}" class="form-control">
+                        <input type="text" placeholder="${Conseiller.telephone}" name="telephone" value="${Conseiller.telephone}" class="form-control">
                     </div>
 
                     <button class="btn btn-primary btn-block btn-am"> Valider </button>
