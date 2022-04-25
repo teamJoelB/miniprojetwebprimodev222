@@ -77,5 +77,33 @@ public class ClientDao {
             solde = rs.getInt("solde");
         }
         return solde;
-     }     
+     }
+
+     public static boolean getEtatCarte(Client c) throws SQLException {
+        String sql = "SELECT cartes.etat FROM cartes, clients, comptes "
+                   + "WHERE comptes.id_client = clients.id_client " 
+                   + "AND cartes.id_compte = comptes.id_compte "
+                   + "AND clients.id_client = ?";
+        Connection connexion = AccessDB.getConnection();
+        PreparedStatement prepare = connexion.prepareStatement(sql);        
+        prepare.setInt(1, c.getId());
+        ResultSet rs = prepare.executeQuery();
+        boolean etat = true;
+        if(rs.next()){
+            etat = rs.getBoolean("etat");
+        }
+        return etat;
+     }
+     
+     public static void setEtatCarte(Client c, boolean etat) throws SQLException {
+        String sql = "UPDATE cartes, comptes, clients SET etat= ? WHERE "
+                   + "comptes.id_client = clients.id_client AND "
+                   + "cartes.id_compte = comptes.id_compte AND " 
+                   + "clients.id_client = ?";
+        Connection connexion = AccessDB.getConnection();
+        PreparedStatement prepare = connexion.prepareStatement(sql);        
+        prepare.setBoolean(1, etat);
+        prepare.setInt(2, c.getId());
+        prepare.executeUpdate();
+     }
 }

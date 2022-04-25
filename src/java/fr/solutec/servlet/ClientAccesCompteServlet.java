@@ -64,11 +64,14 @@ public class ClientAccesCompteServlet extends HttpServlet {
         Client c = (Client) session.getAttribute("client");
         try {
             session.setAttribute("solde", ClientDao.getSolde(c));
+            boolean etatCarte = ClientDao.getEtatCarte(c);
+            session.setAttribute("etatCarte", etatCarte);
+            
+            request.getRequestDispatcher("WEB-INF/ClientCompte.jsp").forward(request, response);
         } catch (SQLException ex) {
             PrintWriter out = response.getWriter();
             out.println(ex.getMessage());
         }
-        request.getRequestDispatcher("WEB-INF/ClientCompte.jsp").forward(request, response);
     }
 
     /**

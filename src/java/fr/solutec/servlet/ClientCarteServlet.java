@@ -9,21 +9,22 @@ import fr.solutec.dao.ClientDao;
 import fr.solutec.model.Client;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author lucas
  */
-@WebServlet(name = "ClientInscriptionServlet", urlPatterns = {"/ClientInscriptionServlet"})
-public class ClientInscriptionServlet extends HttpServlet {
+@WebServlet(name = "ClientCarteServlet", urlPatterns = {"/ClientCarteServlet"})
+public class ClientCarteServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,15 +38,15 @@ public class ClientInscriptionServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
+        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ClientInscriptionServlet</title>");            
+            out.println("<title>Servlet ClientCarteServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ClientInscriptionServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ClientCarteServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -63,7 +64,7 @@ public class ClientInscriptionServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("ClientInscription.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**
@@ -77,30 +78,23 @@ public class ClientInscriptionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Client c = new Client();
-
-        String nom = request.getParameter("nom");
-        String prenom = request.getParameter("prenom");
-        String mail = request.getParameter("mail");
-        LocalDate dateNaissance = LocalDate.parse(request.getParameter("dateNaissance"));
-        String telephone = request.getParameter("telephone");
-        String mdp = request.getParameter("mdp");
-
-        c.setNom(nom);
-        c.setPrenom(prenom);
-        c.setMail(mail);
-        c.setDateNaissance(dateNaissance);
-        c.setTelephone(telephone);
-        c.setMdp(mdp);
-        
-        try {
-            ClientDao.insertClient(c); 
-            request.getRequestDispatcher("loginMembre.jsp").forward(request, response);
-        } catch (Exception e) {
+        HttpSession session = request.getSession();
+        Client c = (Client) session.getAttribute("client");
+        boolean etat = "on".equals(request.getParameter("check"));
+        System.out.println(etat);
+        try { 
+            System.out.println("1");
+            ClientDao.setEtatCarte(c, etat);
+            boolean etatCarte = ClientDao.getEtatCarte(c);
+            session.setAttribute("etatCarte", etatCarte);
+            System.out.println(etatCarte);
+            request.getRequestDispatcher("WEB-INF/ClientCompte.jsp").forward(request, response);
+        } catch (SQLException ex) {
             PrintWriter out = response.getWriter();
-            out.println(e.getMessage());
+            out.println(ex.getMessage());
         }
-    }  
+        
+    }
 
     /**
      * Returns a short description of the servlet.
