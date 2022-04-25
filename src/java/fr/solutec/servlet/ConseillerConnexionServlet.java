@@ -5,9 +5,7 @@
  */
 package fr.solutec.servlet;
 
-import fr.solutec.dao.ClientDao;
 import fr.solutec.dao.ConseillerDao;
-import fr.solutec.model.Client;
 import fr.solutec.model.Conseiller;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -81,10 +79,10 @@ public class ConseillerConnexionServlet extends HttpServlet {
         String mdp = request.getParameter("mdp");
 
         try {
-            Conseiller c = ConseillerDao.getByMailAndPassword(mail, mdp);
-            if (c != null) {
+            Conseiller co = ConseillerDao.getByMailAndPassword(mail, mdp);
+            if (co != null) {
                 HttpSession session = request.getSession();
-                session.setAttribute("conseillerConnected", c);
+                session.setAttribute("conseillerConnected", co);
                 request.getRequestDispatcher("pageConseiller").forward(request, response);
             } else {
                 request.setAttribute("errorMsg", "Identifiant ou mot de passe incorrecte");
