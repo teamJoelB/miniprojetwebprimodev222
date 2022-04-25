@@ -22,13 +22,13 @@ public class ConseillerDao {
         ResultSet rs = prepare.executeQuery();
         if(rs.next()){
             co = new Conseiller();
-            co.setId(rs.getInt("id_Conseiller"));
+            co.setId(rs.getInt("id_conseiller"));
             co.setNom(rs.getString("nom"));
             co.setPrenom(rs.getString("prenom"));
             co.setMail(rs.getString("mail"));
             co.setDateNaissance(rs.getObject("date_naissance", LocalDate.class));
             co.setTelephone(rs.getString("telephone"));
-           // u.setMdp(rs.getString("mdp"));
+            co.setMdp(rs.getString("mdp"));
         }
         return  co;
     }
