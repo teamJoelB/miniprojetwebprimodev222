@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Clara
  */
-@WebServlet(name = "ConnexionAdmin", urlPatterns = {"/loginadmin"})
+@WebServlet(name = "ConnexionAdmin", urlPatterns = {"/ConnexionAdmin"})
 public class ConnexionAdmin extends HttpServlet {
 
     /**
