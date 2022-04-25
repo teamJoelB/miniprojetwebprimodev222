@@ -35,6 +35,6 @@
         <title>Page d'accueil du client</title>
     </head>
     <body>
-       
+        <h1>TU ES BIEN SUR TA PAGE PERSO CLIENT</h1>
     </body>
 </html>
