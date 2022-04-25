@@ -56,22 +56,22 @@
                 <form action ="ClientInscriptionServlet" method="POST">
                     <div class="md-form">
                         <%-- <label>Login</label> --%>
-                        <input type="text" placeholder="Nom" name="nom" class="form_control">
+                        <input type="text" required placeholder="Nom*" name="nom" autocomplete.off class="form_control">
                     </div>
                     <div class="md-form">
-                        <input type="text" placeholder="Prenom" name="prenom" class="form-control">
+                        <input type="text" required placeholder="Prenom*" name="prenom" autocomplete.off class="form-control">
                     </div>
                     <div class="md-form">
-                        <input type="date" placeholder="Naissance" name="date_naissance" class="form_control">
+                        <input type="date" required placeholder="Naissance*" name="date_naissance"  class="form_control">
                     </div>
                     <div class="md-form">
-                        <input type="text" placeholder="Mail" name="mail" class="form_control">
+                        <input type="text" required placeholder="Mail*" name="mail" autocomplete.off class="form_control">
                     </div>
                     <div class="md-form">
-                        <input type="text" placeholder="Téléphone" name="telephone" class="form_control">
+                        <input type="text" placeholder="Téléphone" name="telephone" autocomplete.off class="form_control">
                     </div>
                     <div class="md-form">
-                        <input type="password" placeholder="Password" name="mdp" class="form_control">
+                        <input type="password" required placeholder="Password*" name="mdp" minlenght="2" autocomplete.off class="form_control">
                     </div>
                     <button class="btn btn-primary btn-block"> Valider inscription </button>
                 </form>

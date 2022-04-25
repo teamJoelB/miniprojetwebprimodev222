@@ -10,7 +10,7 @@
     <head>
              <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="CSS/style.css">
+        <link rel="stylesheet" href="CSS/styleclient.css">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
         <!-- Google Fonts -->
@@ -50,7 +50,7 @@
                    <a class="nav-link" href="#">SGB dans le monde</a>
                </li>
                <li class="nav-item">
-                   <a class="nav-link disabled" href="#">Nous contacter</a>
+                   <a class="nav-link disabled" href="">Nous contacter</a>
                </li>
            </ul>
        </div>
