@@ -56,10 +56,10 @@
             <div class="card p-3 z-depth-5">
                 <form action ="ClientConnexionServlet" method="POST">
                     <div class="md-form">
-                        <input type="text" placeholder="Mail" name="mail" value="${param['mail']}" class="form_control">
+                        <input type="text" placeholder="mail" name="mail" value="${param['mail']}" class="form_control">
                     </div>
                     <div class="md-form">
-                        <input type="password" placeholder="Password" name="mdp" class="form-control">
+                        <input type="password" placeholder="Password" name="mdp" value="${param['mdp']}" class="form-control">
                     </div>
                     <button class="btn btn-primary btn-block"> Connexion </button>
                     <button type="button" class ="btn btn-link btn-block" onclick ="location.href = 'inscription'"> S'inscrire </button>
