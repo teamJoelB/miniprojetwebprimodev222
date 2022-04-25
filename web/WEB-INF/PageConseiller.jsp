@@ -84,7 +84,7 @@
       <input
         type="search"
         class="form-control rounded"
-        placeholder="Search"
+        placeholder="Recherche Client"
         aria-label="Search"
         aria-describedby="search-addon"
       />
