@@ -61,7 +61,7 @@
                         <input type="text" placeholder="Mail" name="mail" value="${param['mail']}" class="form_control">
                     </div>
                     <div class="md-form">
-                        <input type="mdp" placeholder="mdp" name="mdp" value="${param['mdp']}" class="form-control">
+                        <input type="password" placeholder="password" name="mdp" value="${param['mdp']}" class="form-control">
                     </div>
                     <button class="btn btn-primary btn-block"> Connexion </button>
 
