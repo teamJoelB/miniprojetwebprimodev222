@@ -62,7 +62,7 @@
                         <input type="password" placeholder="Password" name="mdp" value="${param['mdp']}" class="form-control">
                     </div>
                     <button class="btn btn-primary btn-block"> Connexion </button>
-                    <button type="button" class ="btn btn-link btn-block" onclick ="location.href = 'inscription'"> S'inscrire </button>
+                    <button type="button" class ="btn btn-link btn-block" onclick ="location.href = 'ClientInscription.jsp'"> S'inscrire </button>
                     <p class="text-danger">${msg}</p>
                 </form>
             </div>    

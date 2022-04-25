@@ -32,7 +32,7 @@
         <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
         
-        <title>JSP Page</title>
+        <title>Page d'accueil du client</title>
     </head>
     <body>
        
