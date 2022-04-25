@@ -23,7 +23,8 @@
         <!-- MDB core JavaScript -->
         <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
-        <title>Login Client</title>
+        <link rel="stylesheet" href="CSS/styleclient.css">
+        <title>Login Conseiller</title>
 
     </head>
     <body>
@@ -51,24 +52,23 @@
                 </div>
             </div>
         </nav>
-        <br><h1><center>Espace membres</center></h1>
+        <br><br><br>
+        <h1><center>Espace Conseillers</center></h1>
         <div class="connexion-block">
             <div class="card p-3 z-depth-5">
-                <form action ="login" method="POST">
+                <form id ="contact_form" action ="login" method="POST">
                     <div class="md-form">
-                        <input type="text" placeholder="Login" name="login" value="${param['login']}" class="form_control">
+                        <input type="text" placeholder="Mail" name="mail" value="${param['mail']}" class="form_control">
                     </div>
                     <div class="md-form">
                         <input type="password" placeholder="Password" name="mdp" class="form-control">
                     </div>
                     <button class="btn btn-primary btn-block"> Connexion </button>
-                    <button type="button" class ="btn btn-link btn-block" onclick ="location.href = 'inscription'"> S'inscrire </button>
+
                     <p class="text-danger">${msg}</p>
                 </form>
-            </div>    
+            </div>
+
         </div>
     </body>
 </html>
-
-
-
