@@ -35,7 +35,7 @@
         
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href=accueille"><img src="logoo.png" alt="Solutec gang banque" class="d-inline-block align-text-top w-25 h-25"></a>
+        <a class="navbar-brand" href=accueille"><img src="contracts/img.resources/logoo.png" alt="Solutec gang banque" class="d-inline-block align-text-top w-25 h-25"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -85,19 +85,19 @@
                     <div class="card-header"><center>Espace membre</center></div>
                     
                    <h3 class="card-img">
-                        <img class="mx-auto d-block" src="client.png" alt="ff">
+                        <img class="mx-auto d-block" src="contracts/img.resources/client.png" alt="ff">
                         </h5>
                        
                     
                     <div class="card-footer">
-                   <a href="login" class="btn btn-outline-primary mb-2 active float-right" role="button" title="Se connecter">Se connecter</a>
+                   <a href="ClientConnexionServlet" class="btn btn-outline-primary mb-2 active float-right" role="button" title="Se connecter">Se connecter</a>
                     </div>
                 </div> 
                 <div class="card">
                     <div class="card-header"><center>Espace conseiller</center></div>
                     <div class="card-body">
                        <h3 class="card-img">
-                        <img class="mx-auto d-block" src="conseiller.png" alt="ff">
+                        <img class="mx-auto d-block" src="contracts/img.resources/conseiller.png" alt="ff">
                         </h5>
                     </div>
                     <div class="card-footer">
@@ -108,7 +108,7 @@
                   <div class="card-header"><center>Espace administrateur</center></div>
                     <div class="card-body">
                         <h3 class="card-img">
-                        <img class="mx-auto d-block" src="admin.png" alt="ff">
+                        <img class="mx-auto d-block" src="contracts/img.resources/admin.png" alt="ff">
                         </h5>
                     </div>
                     <div class="card-footer">

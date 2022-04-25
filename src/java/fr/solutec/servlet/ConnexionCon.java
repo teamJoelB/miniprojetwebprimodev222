@@ -12,8 +12,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import fr.solutec.dao.UserDaoCon;
-import fr.solutec.model.User;
+import fr.solutec.dao.ConseillerDao;
+import fr.solutec.model.Client;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -75,17 +75,17 @@ public class ConnexionCon extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String logg= request.getParameter("loginn");
+        String mail= request.getParameter("mail");
         String mdpp = request.getParameter("mdpp");
         
         try{
-            User u = UserDaoCon.getByLoginAndPasswordCA(logg,mdpp);
-            if (u!= null){
+            Client c = ConseillerDao.getByMailAndPassword(mail,mdp);
+            if (c!= null){
                 HttpSession session = request.getSession();
-                session.setAttribute("userConnect",u);
+                session.setAttribute("userConnect",c);
                 response.sendRedirect("HomeS");
             } else{
-                request.setAttribute("msg","Identifiant ou mot de passe incorrecte");
+                request.setAttribute("msg","Email ou mot de passe incorrecte");
                 request.getRequestDispatcher("loginCA.jsp").forward(request, response);
             }
         } catch (Exception e){
