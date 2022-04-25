@@ -60,7 +60,7 @@
                 </div>
             </div>
         </nav>
-        <br><h1><center>Bienvenue à la Solutec gang banque</center></h1><br>
+        <br><h1><center>Bienvenue à la Solutec Gang Banque</center></h1><br>
         <h2><center><i>Pour mieux vous aiguiller, qui êtes-vous?</i></center></h2><br>
         <div class="container">
             <div class="card-deck">
