@@ -82,9 +82,10 @@ public class ClientInscriptionServlet extends HttpServlet {
         String nom = request.getParameter("nom");
         String prenom = request.getParameter("prenom");
         String mail = request.getParameter("mail");
-        LocalDate dateNaissance = LocalDate.parse(request.getParameter("dateNaissance"));
+        LocalDate dateNaissance = LocalDate.parse(request.getParameter("date_naissance"));
         String telephone = request.getParameter("telephone");
         String mdp = request.getParameter("mdp");
+        boolean Valider = false;
 
         c.setNom(nom);
         c.setPrenom(prenom);
@@ -92,6 +93,7 @@ public class ClientInscriptionServlet extends HttpServlet {
         c.setDateNaissance(dateNaissance);
         c.setTelephone(telephone);
         c.setMdp(mdp);
+        c.setValider(Valider);
 
         try {
             ClientDao.insertClient(c); 
