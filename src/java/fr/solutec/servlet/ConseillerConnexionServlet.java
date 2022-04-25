@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Conseiller.Servlet;
+package fr.solutec.servlet;
 
+import fr.solutec.dao.ClientDao;
+import fr.solutec.model.Client;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,13 +14,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author dylan
  */
-@WebServlet(name = "PageConseiller", urlPatterns = {"/PageConseiller"})
-public class PageConseiller extends HttpServlet {
+@WebServlet(name = "ConseillerConnexionServlet", urlPatterns = {"/ConseillerConnexionServlet"})
+public class ConseillerConnexionServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +40,10 @@ public class PageConseiller extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet PageConseiller</title>");            
+            out.println("<title>Servlet ConseillerConnexionServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet PageConseiller at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ConseillerConnexionServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -58,7 +61,7 @@ public class PageConseiller extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("WEB-INF/PageConseiller.jsp").forward(request, response);
+        request.getRequestDispatcher("loginconseiller.jsp").forward(request, response);  //à changer
     }
 
     /**
@@ -72,7 +75,23 @@ public class PageConseiller extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String mail = request.getParameter("mail");
+        String mdp = request.getParameter("mdp");
+
+        try {
+            Client c = ClientDao.getByMailAndPassword(mail, mdp);
+            if (c != null) {
+                HttpSession session = request.getSession();
+                session.setAttribute("conseillerConnected", c);
+                request.getRequestDispatcher("pageConseiller").forward(request, response);
+            } else {
+                request.setAttribute("errorMsg", "Identifiant ou mot de passe incorrecte");
+                request.getRequestDispatcher("index.jsp").forward(request, response);  // à changer
+            }
+        } catch (Exception e) {
+            PrintWriter out = response.getWriter();
+            out.println(e.getMessage());
+        }
     }
 
     /**
