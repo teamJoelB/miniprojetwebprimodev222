@@ -34,7 +34,7 @@ public class ConseillerDao {
     }
     
     
-/*     public static void insertClient(Conseiller c) throws SQLException{
+/*    public static void insertClient(Conseiller c) throws SQLException{
         String sql = "INSERT INTO Conseillers (nom, prenom, mail, date_naissance, telephone, mdp) VALUES (?, ?, ?, ?, ?, ?)";
         Connection connexion = AccessDB.getConnection();
         
