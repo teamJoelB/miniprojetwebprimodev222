@@ -50,7 +50,7 @@ public class ConseillerDao {
         prepare.setString(6, co.getMdp());
         prepare.setInt(7, co.getId());
         
-        prepare.execute();
+        prepare.executeUpdate();
     
     }
          

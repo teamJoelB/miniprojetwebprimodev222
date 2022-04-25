@@ -63,7 +63,7 @@
           <a class="nav-link" href="ConseillerModifierProfitServlet">Gestion du compte</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Deconnexion</a>
+          <a class="nav-link" href="DeconnexionServlet">Deconnexion</a>
         </li>
 
       </ul>

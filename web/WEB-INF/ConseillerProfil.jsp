@@ -66,7 +66,7 @@
           <a class="nav-link active" aria-current="page" href="#">Menu</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Deconnexion</a>
+          <a class="nav-link" href="DeconnexionServlet">Deconnexion</a>
         </li>
 
       </ul>
