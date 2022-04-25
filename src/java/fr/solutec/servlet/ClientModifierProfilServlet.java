@@ -9,19 +9,19 @@ import fr.solutec.dao.ClientDao;
 import fr.solutec.model.Client;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author lucas
  */
-@WebServlet(name = "ClientConnexionServlet", urlPatterns = {"/ClientConnexionServlet"})
-public class ClientConnexionServlet extends HttpServlet {
+@WebServlet(name = "ClientModifierProfilServlet", urlPatterns = {"/ClientModifierProfilServlet"})
+public class ClientModifierProfilServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +40,10 @@ public class ClientConnexionServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ClientServlet</title>");            
+            out.println("<title>Servlet ClientModifierProfilServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ClientServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ClientModifierProfilServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -61,7 +61,7 @@ public class ClientConnexionServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("loginMembre.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/ClientProfil.jsp").forward(request, response);
     }
 
     /**
@@ -75,25 +75,30 @@ public class ClientConnexionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Client c = new Client();
+
+        String nom = request.getParameter("nom");
+        String prenom = request.getParameter("prenom");
         String mail = request.getParameter("mail");
+        LocalDate dateNaissance = LocalDate.parse(request.getParameter("dateNaissance"));
+        String telephone = request.getParameter("telephone");
         String mdp = request.getParameter("mdp");
 
+        c.setNom(nom);
+        c.setPrenom(prenom);
+        c.setMail(mail);
+        c.setDateNaissance(dateNaissance);        
+        c.setTelephone(telephone);
+        c.setMdp(mdp);
+
         try {
-            Client c = ClientDao.getByMailAndPassword(mail, mdp);
-            request.setAttribute("client", c);
-            if (c != null) {
-                HttpSession session = request.getSession();
-                session.setAttribute("clientConnected", c);
-                request.getRequestDispatcher("Client.jsp").forward(request, response);
-            } else {
-                request.setAttribute("errorMsg", "Identifiant ou mot de passe incorrecte");
-                request.getRequestDispatcher("index.jsp").forward(request, response);
-            }
+            ClientDao.updateClient(c); 
+            request.getRequestDispatcher("WEB-INF/Client.jsp").forward(request, response);
         } catch (Exception e) {
             PrintWriter out = response.getWriter();
             out.println(e.getMessage());
         }
-    }
+    }  
 
     /**
      * Returns a short description of the servlet.

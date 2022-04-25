@@ -34,7 +34,7 @@
         <title>JSP Page</title>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="accueil"><img src="logoo.png" alt="Solutec gang banque" class="d-inline-block align-text-top w-25 h-25"></a>
+        <a class="navbar-brand" href="accueille"><img src="contracts/img.resources/logoo.png" alt="Solutec gang banque" class="d-inline-block align-text-top w-25 h-25"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

@@ -35,7 +35,7 @@
         
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href=accueille"><img src="contracts/img.resources/logoo.png" alt="Solutec gang banque" class="d-inline-block align-text-top w-25 h-25"></a>
+        <a class="navbar-brand" href="accueille"><img src="contracts/img.resources/logoo.png" alt="Solutec gang banque" class="d-inline-block align-text-top w-25 h-25"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -51,7 +51,7 @@
                    <a class="nav-link" href="#">SGB dans le monde</a>
                </li>
                <li class="nav-item">
-                   <a class="nav-link disabled" href="#">Nous contacter</a>
+                   <a class="nav-link" href="#">Nous contacter</a>
                </li>
            </ul>
        </div>
@@ -112,7 +112,7 @@
                         </h5>
                     </div>
                     <div class="card-footer">
-                    <a href="logina" class="btn btn-outline-primary mb-2 active float-right " role="button" title="Se connecter">Se connecter</a>
+                    <a href="loginadmin" class="btn btn-outline-primary mb-2 active float-right " role="button" title="Se connecter">Se connecter</a>
                     </div>
                 </div>
             </div>
