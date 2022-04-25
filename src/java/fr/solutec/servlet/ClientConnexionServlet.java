@@ -80,6 +80,7 @@ public class ClientConnexionServlet extends HttpServlet {
 
         try {
             Client c = ClientDao.getByMailAndPassword(mail, mdp);
+            request.setAttribute("client", c);
             if (c != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("clientConnected", c);

@@ -41,10 +41,28 @@ public class ClientDao {
         PreparedStatement prepare = connexion.prepareStatement(sql);
         prepare.setString(1, c.getNom());
         prepare.setString(2, c.getPrenom());
-        prepare.setString(4, c.getMail());
-        prepare.setObject(3, c.getDateNaissance());
+        prepare.setString(3, c.getMail());
+        prepare.setObject(4, c.getDateNaissance());
         prepare.setString(5, c.getTelephone());
-        prepare.setString(5, c.getMdp());
+        prepare.setString(6, c.getMdp());
+        
+        prepare.execute();
+    }
+     
+     public static void updateClient(Client c) throws SQLException{
+        String sql = "UPDATE clients SET nom=?, prenom=?, mail=?,"
+                   + "date_naissance=?, telephone=?, mdp=?"
+                   + "WHERE id_client=?";
+        Connection connexion = AccessDB.getConnection();
+        
+        PreparedStatement prepare = connexion.prepareStatement(sql);
+        prepare.setString(1, c.getNom());
+        prepare.setString(2, c.getPrenom());
+        prepare.setString(3, c.getMail());
+        prepare.setObject(4, c.getDateNaissance());
+        prepare.setString(5, c.getTelephone());
+        prepare.setString(6, c.getMdp());
+        prepare.setInt(6, c.getId());
         
         prepare.execute();
     }

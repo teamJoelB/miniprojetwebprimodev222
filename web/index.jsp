@@ -36,26 +36,23 @@
 
     </head>
     <body>
-        <div class="connexion-block">
-            <div class="card p-3 z-depth-5">
-                <form action="login" method="POST">
-                    <div class="md-form">
-                        <label>Login</label>
-                        <input type="text" name="login" value="${param['login']}" class="form-control">
-                    </div>
-                    <div class="md-form">
-                        <label>Password</label>
-                        <input type="password" name="mdp" class="form-control">
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-block btn-sm">connexion</button>
-                    <button type="button" class="btn btn-link btn-block" onclick="location.href='inscription'">S'inscrire ?</button>
-                    <p class="text-danger text-center">${msg}</p>
-                </form>
-            </div>
+        <div class="card p-3 z-depth-5">
+            <form action="ClientModifierProfilServlet" method="GET">
+                <h1>Profil</h1>
+                Prenom ${client.prenom}<br>
+                Nom ${client.nom}<br>
+                Mail ${client.mail}<br>
+                Date de Naissance ${client.dateNaissance}<br>
+                Telephone ${client.telephone}<br>                        
+                <button class="btn-primary">Modifier profil</button>
+            </form>
         </div>
-               
-                <h1>HELLO CLASSe</h1>
-                
+        <h1>Gérer carte</h1>
+        <h1>Accès au compte</h1>
+        <h2>Solde</h2>
+        <h2>Transactions</h2>
+        <h1>Contacter un conseiller</h1>
+        <div>
+        </div>
     </body>
 </html>

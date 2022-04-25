@@ -5,24 +5,23 @@
  */
 package fr.solutec.servlet;
 
-import fr.solutec.dao.UserDao;
-import fr.solutec.model.User;
+import fr.solutec.dao.ClientDao;
+import fr.solutec.model.Client;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
+import java.time.LocalDate;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author joelg
+ * @author lucas
  */
-@WebServlet(name = "HomeServlet", urlPatterns = {"/home"})
-public class HomeServlet extends HttpServlet {
+@WebServlet(name = "ClientModifierProfilServlet", urlPatterns = {"/ClientModifierProfilServlet"})
+public class ClientModifierProfilServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,15 +35,15 @@ public class HomeServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HomeServlet</title>");
+            out.println("<title>Servlet ClientModifierProfilServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet HomeServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ClientModifierProfilServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -62,25 +61,7 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        HttpSession session = request.getSession();
-        User u = (User) session.getAttribute("userConnect");
-        if (u != null) {
-            request.setAttribute("msg", "Juste un test");
-            request.setAttribute("user",u);
-            try {
-                List<User> users = UserDao.getAll();
-                request.setAttribute("users",users);
-            } catch (Exception e) {
-                PrintWriter out = response.getWriter();
-            out.println("Ex ! : " + e.getMessage());
-            }
-            request.getRequestDispatcher("WEB-INF/home.jsp").forward(request, response);
-        } else {
-            request.setAttribute("msg", "vous devez être connecté");
-            request.getRequestDispatcher("index.jsp").forward(request, response);
-        }
-
+        request.getRequestDispatcher("WEB-INF/ClientProfil.jsp").forward(request, response);
     }
 
     /**
@@ -94,8 +75,30 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-    }
+        Client c = new Client();
+
+        String nom = request.getParameter("nom");
+        String prenom = request.getParameter("prenom");
+        String mail = request.getParameter("mail");
+        LocalDate dateNaissance = LocalDate.parse(request.getParameter("dateNaissance"));
+        String telephone = request.getParameter("telephone");
+        String mdp = request.getParameter("mdp");
+
+        c.setNom(nom);
+        c.setPrenom(prenom);
+        c.setMail(mail);
+        c.setDateNaissance(dateNaissance);        
+        c.setTelephone(telephone);
+        c.setMdp(mdp);
+
+        try {
+            ClientDao.updateClient(c); 
+            request.getRequestDispatcher("WEB-INF/Client.jsp").forward(request, response);
+        } catch (Exception e) {
+            PrintWriter out = response.getWriter();
+            out.println(e.getMessage());
+        }
+    }  
 
     /**
      * Returns a short description of the servlet.

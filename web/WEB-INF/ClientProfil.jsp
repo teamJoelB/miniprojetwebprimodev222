@@ -1,7 +1,7 @@
 <%-- 
-    Document   : inscription
-    Created on : 22 avr. 2022, 09:12:01
-    Author     : joelg
+    Document   : ClientProfil
+    Created on : 25 avr. 2022, 10 h 38 min 34 s
+    Author     : lucas
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -19,7 +19,6 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
         <!-- Material Design Bootstrap -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
-
         <!-- JQuery -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- Bootstrap tooltips -->
@@ -30,38 +29,32 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
         <!-- MDB core JavaScript -->
         <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
-
-        <title>Dev-2-2022</title>
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script> 
+        
+        <title>JSP Page</title>
     </head>
     <body>
         <div class="connexion-block">
             <div class="card p-3 z-depth-5">
-                <form action="inscription" method="POST">
-                    <div class="md-form">
-                        <label>Nom</label>
-                        <input type="text" name="nom" class="form-control">
+                <form action="ClientModifierProfilServlet" method="POST">
+                    <div class="form-outline mb-4">
+                        <input type="text" placeholder="${client.nom}" name="nom" value="${client.nom}" class="form-control" />
                     </div>
-                    <div class="md-form">
-                        <label>Prenom</label>
-                        <input type="text" name="prenom" class="form-control">
+                    <div class="form-outline mb-4">
+                        <input type="text" placeholder="${client.prenom}" name="prenom" value="${client.prenom}" class="form-control">
                     </div>
-                    <div class="md-form">
-                        <label>Date de naissance</label>
-                        <input type="date" name="naissance" class="form-control">
+                    <div class="form-outline mb-4">
+                        <input type="mail" placeholder="${client.mail}" name="mail" value="${client.mail}" class="form-control">
                     </div>
-                    <div class="md-form">
-                        <label>Login</label>
-                        <input type="text" name="login" class="form-control">
+                    <div class="form-outline mb-4">
+                        <input type="date" placeholder="${client.dateNaissance}" name="dateNaissance" value="${client.dateNaissance}" class="form-control">
                     </div>
-                    <div class="md-form">
-                        <label>Password</label>
-                        <input type="password" name="mdp" class="form-control">
+                    <div class="form-outline mb-4">
+                        <input type="text" placeholder="${client.telephone}" name="telephone" value="${client.telephone}" class="form-control">
+                    <div class="form-outline mb-4">
+                        <input type="password" placeholder="Nouveau MDP" name="mdp" class="form-control">
                     </div>
-
-                    <button type="submit" class="btn btn-primary btn-block btn-sm">inscription</button>
-                    <button type="button" class="btn btn-link btn-block" onclick="location.href = 'index.jsp'">Se connecter ?</button>
-                    <p class="text-danger text-center">${msg}</p>
+                    <button class="btn btn-primary btn-block btn-am"> Valider </button>
                 </form>
             </div>
         </div>
