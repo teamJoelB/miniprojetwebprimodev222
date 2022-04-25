@@ -95,7 +95,7 @@ public class ClientInscriptionServlet extends HttpServlet {
 
         try {
             ClientDao.insertClient(c); 
-            request.getRequestDispatcher("ClientConnexion.jsp").forward(request, response);
+            request.getRequestDispatcher("loginMembre.jsp").forward(request, response);
         } catch (Exception e) {
             PrintWriter out = response.getWriter();
             out.println(e.getMessage());
