@@ -12,7 +12,7 @@ import fr.solutec.model.Conseiller;
 public class ConseillerDao {
     public static Conseiller getByMailAndPassword(String mail, String mdp) throws SQLException {
         Conseiller co = null;
-        String sql = "SELECT * FROM Conseillers WHERE mail = ? AND password = ?";
+        String sql = "SELECT * FROM Conseillers WHERE mail = ? AND mdp = ?";
         Connection connexion = AccessDB.getConnection();
         
         PreparedStatement prepare = connexion.prepareStatement(sql);
