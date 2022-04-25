@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class ClientDao {
     public static Client getByMailAndPassword(String mail, String mdp) throws SQLException {
         Client c = null;
-        String sql = "SELECT * FROM clients WHERE mail = ? AND password = ?";
+        String sql = "SELECT * FROM clients WHERE mail = ? AND mdp = ?";
         Connection connexion = AccessDB.getConnection();
         
         PreparedStatement prepare = connexion.prepareStatement(sql);
@@ -28,7 +28,7 @@ public class ClientDao {
             c.setMail(rs.getString("mail"));
             c.setDateNaissance(rs.getObject("date_naissance", LocalDate.class));
             c.setTelephone(rs.getString("telephone"));
-           // u.setMdp(rs.getString("mdp"));
+            c.setMdp(rs.getString("mdp"));
         }
         return  c;
     }

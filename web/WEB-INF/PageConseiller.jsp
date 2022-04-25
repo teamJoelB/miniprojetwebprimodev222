@@ -60,7 +60,7 @@
           <a class="nav-link active" aria-current="page" href="#">Menu</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Gestion du compte</a>
+          <a class="nav-link" href="ConseillerModifierProfitServlet">Gestion du compte</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Deconnexion</a>
@@ -77,14 +77,22 @@
 
 
 <!--                                            bar de recherche Client                                       -->
+<br></br>
+<br></br>
 
-<nav class="navbar navbar-light bg-light">
+
+
+<nav >
+    <div class="box">
+    Recherche d'un client :
+    <br></br>
+    
   <div class="container-fluid">
     <form class="d-flex input-group w-auto">
       <input
         type="search"
         class="form-control rounded"
-        placeholder="Recherche Client"
+        placeholder="Recherche Client (Nom Prenon)"
         aria-label="Search"
         aria-describedby="search-addon"
       />
@@ -92,7 +100,9 @@
         <i class="fas fa-search"></i>
       </span>
     </form>
+      </div>
   </div>
+   
 </nav>
 
 
