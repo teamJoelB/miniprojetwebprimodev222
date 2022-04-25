@@ -23,6 +23,7 @@
         <!-- MDB core JavaScript -->
         <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+        <link rel="stylesheet" href="CSS/styleclient.css">
         <title>JSP Page</title>
         
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -41,12 +42,11 @@
     </head>
     <body>
         <br><br><br>
-        <h1><center>Espace admins/conseillers</center></h1>
+        <h1><center>Espace Conseillers</center></h1>
         <div class="connexion-block">
             <div class="card p-3 z-depth-5">
-                <form action ="login" method="POST">
+                <form id ="contact_form" action ="login" method="POST">
                     <div class="md-form">
-                        <%-- <label>Login</label> --%>
                         <input type="text" placeholder="Mail" name="mail" value="${param['mail']}" class="form_control">
                     </div>
                     <div class="md-form">
