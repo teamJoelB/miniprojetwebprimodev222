@@ -5,24 +5,22 @@
  */
 package fr.solutec.servlet;
 
-import fr.solutec.dao.UserDao;
-import fr.solutec.model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import fr.solutec.dao.UserDao;
+import fr.solutec.model.User;
+import java.sql.SQLException;
+import java.time.LocalDate;
+
 
 /**
  *
- * @author joelg
+ * @author Clara
  */
 @WebServlet(name = "InscriptionServlet", urlPatterns = {"/inscription"})
 public class InscriptionServlet extends HttpServlet {
@@ -48,23 +46,6 @@ public class InscriptionServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet InscriptionServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-    
-    protected void infoAfterInscription(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>InscriptionServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1 style='color: green; text-align: center'> Inscription Success <a href='index.jsp' >Voullez vous vous connecter ?</a> </h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -98,21 +79,27 @@ public class InscriptionServlet extends HttpServlet {
             throws ServletException, IOException {
         String nom = request.getParameter("nom");
         String prenom = request.getParameter("prenom");
-        String dateNaissance = request.getParameter("naissance");
+        LocalDate date_naissance = LocalDate.parse(request.getParameter("date_naissance"));
+        int poids = Integer.parseInt(request.getParameter("poids"));
+        String sexe = request.getParameter("sexe");
+        String mail = request.getParameter("mail");
         String login = request.getParameter("login");
-        String mdp = request.getParameter("mdp");
+        String password = request.getParameter("password");
         
+        User u = new User();
+        u.setNom(nom);
+        u.setPrenom(prenom);
+        u.setDateNaissance(date_naissance);
+        u.setMail(mail);
+        u.setSexe(sexe);
+        u.setPoids(poids);
+        u.setLogin(login);
+        u.setPassword(password);
         try {
-            DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            LocalDate ld = LocalDate.parse(dateNaissance, df);
-            Date naissance = Date.valueOf(ld);
-            UserDao.inserUser(new User(0, nom, prenom, naissance , login, mdp));
-            infoAfterInscription(request, response);
-        } catch (Exception e) {
-            PrintWriter out = response.getWriter();
-            out.println(e.getMessage());
+            UserDao.insertUserInDatabase(u);
+        } catch (SQLException ex) {
         }
-        
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     /**

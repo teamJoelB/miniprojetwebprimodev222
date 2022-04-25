@@ -1,11 +1,6 @@
-<%-- 
-    Document   : index
-    Created on : 21 avr. 2022, 11:55:37
-    Author     : Clara
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -29,7 +24,7 @@
         <!-- MDB core JavaScript -->
         <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
-        <title>JSP Page</title>
+        <title>Accueil</title>
     </head>
     <body>        
         <div class="connexion-block">

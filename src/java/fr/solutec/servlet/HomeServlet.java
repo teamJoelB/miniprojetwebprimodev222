@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author joelg
  */
-@WebServlet(name = "HomeServlet", urlPatterns = {"/home"})
+@WebServlet(name = "HomeServlet", urlPatterns = {"/HomeS"})
 public class HomeServlet extends HttpServlet {
 
     /**

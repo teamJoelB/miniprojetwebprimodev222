@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import fr.solutec.dao.UserDao;
+import fr.solutec.dao.UserDaoCon;
 import fr.solutec.model.User;
 import javax.servlet.http.HttpSession;
 
@@ -20,8 +20,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Clara
  */
-@WebServlet(name = "ConnexionServlet", urlPatterns = {"/login"})
-public class ConnexionServlet extends HttpServlet {
+@WebServlet(name = "ConnexionCon", urlPatterns = {"/logina"})
+public class ConnexionCon extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -61,7 +61,7 @@ public class ConnexionServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("indexl.jsp").forward(request,response);
+        request.getRequestDispatcher("loginCA.jsp").forward(request,response);
     }
 
     /**
@@ -75,18 +75,18 @@ public class ConnexionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String log= request.getParameter("login");
-        String mdp = request.getParameter("mdp");
+        String logg= request.getParameter("loginn");
+        String mdpp = request.getParameter("mdpp");
         
         try{
-            User u = UserDao.getByLoginAndPassword(log,mdp);
+            User u = UserDaoCon.getByLoginAndPasswordCA(logg,mdpp);
             if (u!= null){
                 HttpSession session = request.getSession();
                 session.setAttribute("userConnect",u);
                 response.sendRedirect("HomeS");
             } else{
                 request.setAttribute("msg","Identifiant ou mot de passe incorrecte");
-                request.getRequestDispatcher("indexl.jsp").forward(request, response);
+                request.getRequestDispatcher("loginCA.jsp").forward(request, response);
             }
         } catch (Exception e){
             PrintWriter out = response.getWriter();
@@ -101,7 +101,6 @@ public class ConnexionServlet extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+        return "g description";
+    }
 }

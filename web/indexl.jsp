@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 21 avr. 2022, 11:55:37
-    Author     : Clara
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -30,40 +24,44 @@
         <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
         <title>JSP Page</title>
+        
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href=accueille"><img src="logoo.png" alt="Solutec gang banque" class="d-inline-block align-text-top w-25 h-25"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                
+           </ul>
+       </div>
+    </div>
+</nav>
     </head>
-    <body>        
+    <body>
+       <br><br><br>
+        <h1><center>Espace membres</center></h1>
         <div class="connexion-block">
             <div class="card p-3 z-depth-5">
-                <form action ="inscription" method="POST">
+                <form action ="login" method="POST">
                     <div class="md-form">
                         <%-- <label>Login</label> --%>
-                        <input type="text" placeholder="Nom" name="nom" class="form_control">
+                        <input type="text" placeholder="Login" name="login" value="${param['login']}" class="form_control">
                     </div>
                     <div class="md-form">
-                        <input type="text" placeholder="Prenom" name="prenom" class="form-control">
+                        <input type="password" placeholder="Password" name="mdp" class="form-control">
                     </div>
-                    <div class="md-form">
-                        <input type="date" placeholder="Naissance" name="date_naissance" class="form_control">
-                    </div>
-                    <div class="md-form">
-                        <input type="text" placeholder="Poids" name="poids" class="form_control">
-                    </div> 
-                    <div class="md-form">
-                        <input type="text" placeholder="Sexe" name="sexe" class="form_control">
-                    </div>
-                    <div class="md-form">
-                        <input type="text" placeholder="Mail" name="mail" class="form_control">
-                    </div>
-                    <div class="md-form">
-                        <input type="text" placeholder="Login" name="login" class="form_control">
-                    </div>
-                    <div class="md-form">
-                        <input type="password" placeholder="Password" name="password" class="form_control">
-                    </div>
-                    <button class="btn btn-primary btn-block"> Valider inscription </button>
+                    <button class="btn btn-primary btn-block"> Connexion </button>
+                    <button type="button" class ="btn btn-link btn-block" onclick ="location.href='inscription'"> S'inscrire </button>
+                    <p class="text-danger">${msg}</p>
                 </form>
             </div>
+                
         </div>
     
     </body>
 </html>
+
+
+
