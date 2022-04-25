@@ -13,7 +13,7 @@ import fr.solutec.model.Conseiller;
 public class ConseillerDao {
     public static Conseiller getByMailAndPassword(String mail, String mdp) throws SQLException {
         Conseiller co = null;
-        String sql = "SELECT * FROM Conseillers WHERE mail = ? AND mdp = ?";
+        String sql = "SELECT * FROM conseillers WHERE mail = ? AND mdp = ?";
         Connection connexion = AccessDB.getConnection();
         
         PreparedStatement prepare = connexion.prepareStatement(sql);
@@ -36,9 +36,9 @@ public class ConseillerDao {
     
     
      public static void updateConseiller(Conseiller co) throws SQLException{
-        String sql = "UPDATE Conseillers SET nom=?, prenom=?, mail=?,"
-                   + "date_naissance=?, telephone=?, mdp=?, id_conseiller=id_conseiller"
-                   + "WHERE id_client=?";
+        String sql = "UPDATE conseillers SET nom=?, prenom=?, mail=?,"
+                   + "date_naissance=?, mdp=?, telephone=?"
+                   + "WHERE id_Conseiller=?";
         Connection connexion = AccessDB.getConnection();
         
         PreparedStatement prepare = connexion.prepareStatement(sql);
@@ -48,7 +48,7 @@ public class ConseillerDao {
         prepare.setObject(4, co.getDateNaissance());
         prepare.setString(5, co.getTelephone());
         prepare.setString(6, co.getMdp());
-        prepare.setInt(6, co.getId());
+        prepare.setInt(7, co.getId());
         
         prepare.execute();
     
