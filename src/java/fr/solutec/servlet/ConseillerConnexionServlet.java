@@ -79,11 +79,10 @@ public class ConseillerConnexionServlet extends HttpServlet {
         String mdp = request.getParameter("mdp");
 
         try {
-            Conseiller co = ConseillerDao.getByMailAndPassword(mail, mdp);
-            request.setAttribute("conseiller", co);
+            Conseiller co = ConseillerDao.getByMailAndPassword(mail, mdp);           
             if (co != null) {
                 HttpSession session = request.getSession();
-                session.setAttribute("conseillerConnected", co);
+                session.setAttribute("Conseiller", co);
                 request.getRequestDispatcher("WEB-INF/PageConseiller.jsp").forward(request, response);
             } else {
                 request.setAttribute("errorMsg", "Identifiant ou mot de passe incorrecte");
