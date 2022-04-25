@@ -48,7 +48,7 @@ public class ConseillerDao {
         prepare.setObject(4, co.getDateNaissance());
         prepare.setString(5, co.getTelephone());
         prepare.setString(6, co.getMdp());
-        prepare.setInt(6, co.getId());
+        prepare.setInt(7, co.getId());
         
         prepare.execute();
     

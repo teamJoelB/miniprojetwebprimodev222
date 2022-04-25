@@ -10,6 +10,7 @@ import fr.solutec.dao.ConseillerDao;
 import fr.solutec.model.Conseiller;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import java.time.LocalDate;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -87,7 +88,7 @@ public class ConseillerModifierProfitServlet extends HttpServlet {
         String mdp = request.getParameter("mdp");
         
         HttpSession session = request.getSession();
-        Conseiller currentConseiller = (Conseiller) session.getAttribute("conseiller");
+        Conseiller currentConseiller = (Conseiller) session.getAttribute("Conseiller");
 
         co.setNom(nom);
         co.setPrenom(prenom);
