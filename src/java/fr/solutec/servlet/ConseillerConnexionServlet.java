@@ -61,7 +61,7 @@ public class ConseillerConnexionServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("loginconseiller.jsp").forward(request, response);  //à changer
+        request.getRequestDispatcher("loginConseiller.jsp").forward(request, response);  //à changer
     }
 
     /**
