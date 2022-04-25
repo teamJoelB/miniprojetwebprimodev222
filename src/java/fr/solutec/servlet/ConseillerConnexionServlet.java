@@ -80,6 +80,7 @@ public class ConseillerConnexionServlet extends HttpServlet {
 
         try {
             Conseiller co = ConseillerDao.getByMailAndPassword(mail, mdp);
+            request.setAttribute("conseiller", co);
             if (co != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("conseillerConnected", co);
