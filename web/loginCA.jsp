@@ -40,42 +40,7 @@
 </nav>
     </head>
     <body>
-        <%--
-        <h1 class="center">Helloo kikouuuu!</h1>
-        <% String nom = "Dylan";
-        out.println(nom);
-        int age = 17;
-        if (age<18){
-            out.println("<p style='color :red'> Mineur <p>");
-        }
-        else{
-            out.println("<p style ='color : green'> Majeur <p>");
-        }%>
-        
-        ${1+1}
-        
-        <script>
-            alert('DEV 222 RPZ');
-        </script>
-
-        <div>
-            <form action="/ma-page-de-traitement" method="post">
-                <div>
-                    <label for="name">Nom :</label>
-                    <input type="text" id="name" name="user_name">
-                </div>
-                <div>
-                    <label for="mail">e-mail&nbsp;:</label>
-                    <input type="email" id="mail" name="user_mail">
-                </div>
-                <div>
-                    <label for="msg">Message :</label>
-                    <textarea id="msg" name="user_message"></textarea>
-                </div>
-            </form>
-
-        </div>        
-        --%><br><br><br>
+        <br><br><br>
         <h1><center>Espace admins/conseillers</center></h1>
         <div class="connexion-block">
             <div class="card p-3 z-depth-5">
