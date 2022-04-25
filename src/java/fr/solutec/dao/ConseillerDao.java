@@ -5,14 +5,13 @@
  */
 package fr.solutec.dao;
 
-import fr.solutec.model.Client;
 import java.sql.*;
 import java.time.LocalDate;
 import fr.solutec.model.Conseiller;
 
 public class ConseillerDao {
     public static Conseiller getByMailAndPassword(String mail, String mdp) throws SQLException {
-        Conseiller c = null;
+        Conseiller co = null;
         String sql = "SELECT * FROM Conseillers WHERE mail = ? AND password = ?";
         Connection connexion = AccessDB.getConnection();
         
@@ -22,21 +21,21 @@ public class ConseillerDao {
         
         ResultSet rs = prepare.executeQuery();
         if(rs.next()){
-            c = new Conseiller();
-            c.setId(rs.getInt("id_Conseiller"));
-            c.setNom(rs.getString("nom"));
-            c.setPrenom(rs.getString("prenom"));
-            c.setMail(rs.getString("mail"));
-            c.setDateNaissance(rs.getObject("date_naissance", LocalDate.class));
-            c.setTelephone(rs.getString("telephone"));
+            co = new Conseiller();
+            co.setId(rs.getInt("id_Conseiller"));
+            co.setNom(rs.getString("nom"));
+            co.setPrenom(rs.getString("prenom"));
+            co.setMail(rs.getString("mail"));
+            co.setDateNaissance(rs.getObject("date_naissance", LocalDate.class));
+            co.setTelephone(rs.getString("telephone"));
            // u.setMdp(rs.getString("mdp"));
         }
-        return  c;
+        return  co;
     }
     
     
-     public static void insertClient(Conseiller c) throws SQLException{
-        String sql = "INSERT INTO clients (nom, prenom, mail, date_naissance, telephone, mdp) VALUES (?, ?, ?, ?, ?, ?)";
+/*     public static void insertClient(Conseiller c) throws SQLException{
+        String sql = "INSERT INTO Conseillers (nom, prenom, mail, date_naissance, telephone, mdp) VALUES (?, ?, ?, ?, ?, ?)";
         Connection connexion = AccessDB.getConnection();
         
         PreparedStatement prepare = connexion.prepareStatement(sql);
@@ -47,7 +46,6 @@ public class ConseillerDao {
         prepare.setString(5, c.getTelephone());
         prepare.setString(5, c.getMdp());
         
-        prepare.execute();
+        prepare.execute(); }*/
     }
          
-}
