@@ -87,3 +87,19 @@ label>span {
 #menu:checked~#wrap label>svg {
     display: none;
 }
+
+#contact_form {
+    border: 1px solid black;
+    text-align: center;
+    margin-left: 100px;
+    margin-right: 100px;
+    float: left;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    box-shadow: 10px 10px 10px rgb(33, 142, 14);
+}
+
+.content {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
