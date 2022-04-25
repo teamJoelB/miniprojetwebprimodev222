@@ -109,3 +109,27 @@ label>span {
     width: 20% !important;
     margin-top: 100px !important;
 }
+
+.box {
+    border : 5px solid grey;
+    height: 150px;
+    width: 400px;
+    margin-left: 50px;
+}
+
+.Changementdemotdepasse {
+    display: block;
+    font: .9rem 'Fira Sans', sans-serif;
+}
+
+input[type='submit'],
+.Changementdemotdepasse {
+    margin-top: 1rem;
+}
+
+.box2 {
+    border : 5px solid grey;
+    height: 675px;
+    width: 250px;
+    margin-left: 50px;
+}

@@ -50,7 +50,7 @@
                 </div>
             </div>
         </nav>
-        <br><h1><center>Inscrivez vous à la SGB !</center></h1><br>
+        <br><h1><center>Inscrivez vous à la SGB !</center></h1>
         <div class="connexion-block">
             <div class="card p-3 z-depth-5">
                 <form action ="ClientInscriptionServlet" method="POST">

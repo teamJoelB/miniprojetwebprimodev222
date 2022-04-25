@@ -5,6 +5,7 @@
  */
 package fr.solutec.dao;
 
+
 import java.sql.*;
 import java.time.LocalDate;
 import fr.solutec.model.Conseiller;
@@ -12,7 +13,7 @@ import fr.solutec.model.Conseiller;
 public class ConseillerDao {
     public static Conseiller getByMailAndPassword(String mail, String mdp) throws SQLException {
         Conseiller co = null;
-        String sql = "SELECT * FROM Conseillers WHERE mail = ? AND mdp = ?";
+        String sql = "SELECT * FROM conseillers WHERE mail = ? AND mdp = ?";
         Connection connexion = AccessDB.getConnection();
         
         PreparedStatement prepare = connexion.prepareStatement(sql);
@@ -34,18 +35,23 @@ public class ConseillerDao {
     }
     
     
-/*     public static void insertClient(Conseiller c) throws SQLException{
-        String sql = "INSERT INTO Conseillers (nom, prenom, mail, date_naissance, telephone, mdp) VALUES (?, ?, ?, ?, ?, ?)";
+     public static void updateConseiller(Conseiller co) throws SQLException{
+        String sql = "UPDATE conseillers SET nom=?, prenom=?, mail=?,"
+                   + "date_naissance=?, mdp=?, telephone=?"
+                   + "WHERE id_Conseiller=?";
         Connection connexion = AccessDB.getConnection();
         
         PreparedStatement prepare = connexion.prepareStatement(sql);
-        prepare.setString(1, c.getNom());
-        prepare.setString(2, c.getPrenom());
-        prepare.setString(4, c.getMail());
-        prepare.setObject(3, c.getDateNaissance());
-        prepare.setString(5, c.getTelephone());
-        prepare.setString(5, c.getMdp());
+        prepare.setString(1, co.getNom());
+        prepare.setString(2, co.getPrenom());
+        prepare.setString(3, co.getMail());
+        prepare.setObject(4, co.getDateNaissance());
+        prepare.setString(5, co.getTelephone());
+        prepare.setString(6, co.getMdp());
+        prepare.setInt(7, co.getId());
         
-        prepare.execute(); }*/
+        prepare.execute();
+    
     }
          
+}

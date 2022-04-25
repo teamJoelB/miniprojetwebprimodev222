@@ -1,11 +1,17 @@
+<%-- 
+    Document   : ConseillerProfil
+    Created on : 25 avr. 2022, 15:13:07
+    Author     : dylan
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Page-Conseiller</title>
+        <title>Gestion de Compte</title>
         
-            <meta charset="UTF-8">
+         <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/styleclient.css">
@@ -35,14 +41,14 @@
         <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
     
+        
     </head>
-    
     <body>
-<!--                                  Navbar                                              -->         
+        <!--                                  Navbar                                              -->         
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"> Conseiller ${user.prenom} ${user.nom}</a>
+    <a class="navbar-brand" href="PageConseiller"> Conseiller ${user.prenom} ${user.nom}</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -60,9 +66,6 @@
           <a class="nav-link active" aria-current="page" href="#">Menu</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="ConseillerModifierProfitServlet">Gestion du compte</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="#">Deconnexion</a>
         </li>
 
@@ -74,46 +77,41 @@
 
 
 <!--                                   Navbar                                        -->
+        
+<br></br>        
 
-
-<!--                                            bar de recherche Client                                       -->
-<br></br>
-<br></br>
-
-
-
-<nav >
-    <div class="box">
-    Recherche d'un client :
+<div class="box2">
+    <div class="card p-3 z-depth-5">
+    Mettre à jour le profils
     <br></br>
-    
-  <div class="container-fluid">
-    <form class="d-flex input-group w-auto">
-      <input
-        type="search"
-        class="form-control rounded"
-        placeholder="Recherche Client (Nom Prenon)"
-        aria-label="Search"
-        aria-describedby="search-addon"
-      />
-      <span class="input-group-text border-0" id="search-addon">
-        <i class="fas fa-search"></i>
-      </span>
-    </form>
-      </div>
-  </div>
-   
-</nav>
+        
+                <form action="ClientModifierProfilServlet" method="POST">
+                    <div class="form-outline mb-4">Nom
+                        <input type="text" placeholder="${Conseiller.nom}" name="nom" value="${Conseiller.nom}" class="form-control" /> 
+                    </div>
+                    <div class="form-outline mb-4">Prénom
+                        <input type="text" placeholder="${Conseiller.prenom}" name="prenom" value="${Conseiller.prenom}" class="form-control">
+                    </div>
+                    <div class="form-outline mb-4">Mot de passe (8 characters minimum)
+                        <input type="password" placeholder="Nouveau MDP" name="mdp" class="form-control">
+                    </div>
+                    <div class="form-outline mb-4">Mail
+                        <input type="mail" placeholder="${Conseiller.mail}" name="mail" value="${Conseiller.mail}" class="form-control">
+                    </div>
+                    <div class="form-outline mb-4">Date de naissance
+                        <input type="date" placeholder="${Conseiller.dateNaissance}" name="dateNaissance" value="${Conseiller.dateNaissance}" class="form-control">
+                    </div>
+                    <div class="form-outline mb-4">Téléphone
+                        <input type="text" placeholder="${Conseiller.telephone}" name="telephone" value="${Conseiller.telephone}" class="form-control">
+                    </div>
 
+                    <button class="btn btn-primary btn-block btn-am"> Valider </button>
+                </form>
+          
+       
 
-
-
-
-
-
-
-
-
-<!--                                            bar de recherche Client                                       -->
     </body>
 </html>
+</div>
+</div>
+                    
