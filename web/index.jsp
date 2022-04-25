@@ -1,6 +1,6 @@
 <%-- 
-    Document   : newjsp
-    Created on : 24 avr. 2022, 22:36:02
+    Document   : index
+    Created on : 25 avr. 2022, 14:51:42
     Author     : Longe
 --%>
 
@@ -97,7 +97,7 @@
                         <a href="ConnexionAdmin" class="btn btn-outline-primary mb-2 active float-right " role="button" title="Se connecter">Se connecter</a>
                     </div>
                 </div>
-            </div>
+              </div>
         </div>
     </body>
 </html>
