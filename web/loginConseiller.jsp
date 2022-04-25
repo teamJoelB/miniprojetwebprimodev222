@@ -56,12 +56,12 @@
         <h1><center>Espace Conseillers</center></h1>
         <div class="connexion-block">
             <div class="card p-3 z-depth-5">
-                <form action ="login" method="POST">
+                <form action ="ConseillerConnexionServlet" method="POST">
                     <div class="md-form">
                         <input type="text" placeholder="Mail" name="mail" value="${param['mail']}" class="form_control">
                     </div>
                     <div class="md-form">
-                        <input type="password" placeholder="Password" name="mdp" class="form-control">
+                        <input type="mdp" placeholder="mdp" name="mdp" value="${param['mdp']}" class="form-control">
                     </div>
                     <button class="btn btn-primary btn-block"> Connexion </button>
 

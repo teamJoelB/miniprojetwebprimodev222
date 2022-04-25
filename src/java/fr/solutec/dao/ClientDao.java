@@ -28,7 +28,7 @@ public class ClientDao {
             c.setMail(rs.getString("mail"));
             c.setDateNaissance(rs.getObject("date_naissance", LocalDate.class));
             c.setTelephone(rs.getString("telephone"));
-           // u.setMdp(rs.getString("mdp"));
+            c.setMdp(rs.getString("mdp"));
         }
         return  c;
     }

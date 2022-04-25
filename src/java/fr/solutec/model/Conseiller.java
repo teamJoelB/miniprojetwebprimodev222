@@ -53,7 +53,7 @@ public class Conseiller {
     }
     
     public void setId(int idConseiller){
-        this.idConseiller = idConseiller ;
+        this.idConseiller = idConseiller;
     }
     public void setNom(String nom){
         this.nom = nom;

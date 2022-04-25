@@ -83,7 +83,7 @@ public class ConseillerConnexionServlet extends HttpServlet {
             if (co != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("conseillerConnected", co);
-                request.getRequestDispatcher("pageConseiller").forward(request, response);
+                request.getRequestDispatcher("WEB-INF/pageConseiller.jsp").forward(request, response);
             } else {
                 request.setAttribute("errorMsg", "Identifiant ou mot de passe incorrecte");
                 request.getRequestDispatcher("index.jsp").forward(request, response);  // à changer
