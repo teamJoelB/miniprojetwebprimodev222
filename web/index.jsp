@@ -31,7 +31,7 @@
         <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Acceuil SBG</title>
     </head>
 
 
@@ -48,7 +48,7 @@
                             <a class="nav-link active" aria-current="page" href="faq">Qui sommes nous ?</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="faq">Pourquoi nous rejoindre !</a>
+                            <a class="nav-link" href="faq">Pourquoi nous rejoindre ?</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">SGB dans le monde</a>
@@ -60,7 +60,7 @@
                 </div>
             </div>
         </nav>
-        <br><h1><center>Bienvenu(es) à la Solutec gang banque</center></h1><br>
+        <br><h1><center>Bienvenue à la Solutec gang banque</center></h1><br>
         <h2><center><i>Pour mieux vous aiguiller, qui êtes-vous?</i></center></h2><br>
         <div class="container">
             <div class="card-deck">
