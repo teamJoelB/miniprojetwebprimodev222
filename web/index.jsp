@@ -54,7 +54,7 @@
                             <a class="nav-link" href="#">SGB dans le monde</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Nous contacter</a>
+                            <a class="nav-link" href="Contact">Nous contacter</a>
                         </li>
                     </ul>
                 </div>
