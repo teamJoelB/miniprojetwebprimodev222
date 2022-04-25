@@ -52,7 +52,7 @@
             </div>
         </nav>
         <br><br><br>
-        <h1><center>Espace admins/conseillers</center></h1>
+        <h1><center>Espace Administrateurs</center></h1>
         <div class="connexion-block">
             <div class="card p-3 z-depth-5">
                 <form action ="login" method="POST">
