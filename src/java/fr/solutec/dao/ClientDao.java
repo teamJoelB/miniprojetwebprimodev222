@@ -51,10 +51,9 @@ public class ClientDao {
      
      public static void updateClient(Client c) throws SQLException{
         String sql = "UPDATE clients SET nom=?, prenom=?, mail=?,"
-                   + "date_naissance=?, telephone=?, mdp=?, id_conseiller=id_conseiller"
+                   + "date_naissance=?, telephone=?, mdp=?"
                    + "WHERE id_client=?";
         Connection connexion = AccessDB.getConnection();
-        
         PreparedStatement prepare = connexion.prepareStatement(sql);
         prepare.setString(1, c.getNom());
         prepare.setString(2, c.getPrenom());
@@ -62,19 +61,21 @@ public class ClientDao {
         prepare.setObject(4, c.getDateNaissance());
         prepare.setString(5, c.getTelephone());
         prepare.setString(6, c.getMdp());
-        prepare.setInt(6, c.getId());
-        
-        prepare.execute();
+        prepare.setInt(7, c.getId());
+
+        prepare.executeUpdate();
     }
      
      public static int getSolde(Client c) throws SQLException {
         String sql = "SELECT solde FROM comptes WHERE id_client = ?";
         Connection connexion = AccessDB.getConnection();
-        
-        PreparedStatement prepare = connexion.prepareStatement(sql);
+        PreparedStatement prepare = connexion.prepareStatement(sql);        
         prepare.setInt(1, c.getId());
         ResultSet rs = prepare.executeQuery();
-        
-        return rs.getInt("solde");
+        int solde = 0;
+        if(rs.next()){
+            solde = rs.getInt("solde");
+        }
+        return solde;
      }     
 }
