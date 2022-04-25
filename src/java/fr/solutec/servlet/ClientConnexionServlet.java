@@ -84,6 +84,7 @@ public class ClientConnexionServlet extends HttpServlet {
             if (c != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("client", c);
+                System.out.println(c.getId());
                 request.getRequestDispatcher("WEB-INF/Client.jsp").forward(request, response);
             } else {
                 request.setAttribute("errorMsg", "Identifiant ou mot de passe incorrecte");

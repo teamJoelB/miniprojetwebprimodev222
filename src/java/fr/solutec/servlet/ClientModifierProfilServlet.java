@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -84,6 +85,10 @@ public class ClientModifierProfilServlet extends HttpServlet {
         String telephone = request.getParameter("telephone");
         String mdp = request.getParameter("mdp");
 
+        HttpSession session = request.getSession();
+        Client currentClient = (Client) session.getAttribute("client");
+        
+        c.setId(currentClient.getId());
         c.setNom(nom);
         c.setPrenom(prenom);
         c.setMail(mail);
