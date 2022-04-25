@@ -103,3 +103,9 @@ label>span {
     margin-top: 50px;
     margin-bottom: 50px;
 }
+
+.connexion-block{
+    margin: auto !important;
+    width: 20% !important;
+    margin-top: 100px !important;
+}

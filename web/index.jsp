@@ -83,7 +83,7 @@
                         </h3>
                     </div>
                     <div class="card-footer">
-                        <a href="logina" class="btn btn-outline-primary mb-2 active float-right" role="button" title="Se connecter">Se connecter</a>
+                        <a href="ConseillerConnexionServlet" class="btn btn-outline-primary mb-2 active float-right" role="button" title="Se connecter">Se connecter</a>
                     </div>
                 </div>
                 <div class="card">
