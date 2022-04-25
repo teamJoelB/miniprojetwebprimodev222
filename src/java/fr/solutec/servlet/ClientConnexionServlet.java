@@ -61,7 +61,7 @@ public class ClientConnexionServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("ClientConnexion.jsp").forward(request, response);
+        request.getRequestDispatcher("loginMembre.jsp").forward(request, response);
     }
 
     /**
