@@ -5,6 +5,7 @@
  */
 package fr.solutec.dao;
 
+
 import java.sql.*;
 import java.time.LocalDate;
 import fr.solutec.model.Conseiller;
@@ -34,18 +35,23 @@ public class ConseillerDao {
     }
     
     
-/*    public static void insertClient(Conseiller c) throws SQLException{
-        String sql = "INSERT INTO Conseillers (nom, prenom, mail, date_naissance, telephone, mdp) VALUES (?, ?, ?, ?, ?, ?)";
+     public static void updateConseiller(Conseiller co) throws SQLException{
+        String sql = "UPDATE Conseillers SET nom=?, prenom=?, mail=?,"
+                   + "date_naissance=?, telephone=?, mdp=?, id_conseiller=id_conseiller"
+                   + "WHERE id_client=?";
         Connection connexion = AccessDB.getConnection();
         
         PreparedStatement prepare = connexion.prepareStatement(sql);
-        prepare.setString(1, c.getNom());
-        prepare.setString(2, c.getPrenom());
-        prepare.setString(4, c.getMail());
-        prepare.setObject(3, c.getDateNaissance());
-        prepare.setString(5, c.getTelephone());
-        prepare.setString(5, c.getMdp());
+        prepare.setString(1, co.getNom());
+        prepare.setString(2, co.getPrenom());
+        prepare.setString(3, co.getMail());
+        prepare.setObject(4, co.getDateNaissance());
+        prepare.setString(5, co.getTelephone());
+        prepare.setString(6, co.getMdp());
+        prepare.setInt(6, co.getId());
         
-        prepare.execute(); }*/
+        prepare.execute();
+    
     }
          
+}

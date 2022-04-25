@@ -81,21 +81,36 @@
 <br></br>        
 
 <div class="box2">
-    Changer le mot de passe
-<div>
-    <div class="Changementdemotdepasse" for="username">Username:</div>
-    <input type="text" id="username" name="username">
-</div>
+    <div class="card p-3 z-depth-5">
+    Mettre à jour le profils
+    <br></br>
+        
+                <form action="ClientModifierProfilServlet" method="POST">
+                    <div class="form-outline mb-4">Nom
+                        <input type="text" placeholder="${client.nom}" name="nom" value="${client.nom}" class="form-control" /> 
+                    </div>
+                    <div class="form-outline mb-4">Prénom
+                        <input type="text" placeholder="${client.prenom}" name="prenom" value="${client.prenom}" class="form-control">
+                    </div>
+                    <div class="form-outline mb-4">Mot de passe (8 characters minimum)
+                        <input type="password" placeholder="Nouveau MDP" name="mdp" class="form-control">
+                    </div>
+                    <div class="form-outline mb-4">Mail
+                        <input type="mail" placeholder="${client.mail}" name="mail" value="${client.mail}" class="form-control">
+                    </div>
+                    <div class="form-outline mb-4">Date de naissance
+                        <input type="date" placeholder="${client.dateNaissance}" name="dateNaissance" value="${client.dateNaissance}" class="form-control">
+                    </div>
+                    <div class="form-outline mb-4">Téléphone
+                        <input type="text" placeholder="${client.telephone}" name="telephone" value="${client.telephone}" class="form-control">
+                    </div>
 
-<div>
-    <div class="Changementdemotdepasse" for="pass">Password (8 characters minimum):</div>
-    <input type="password" id="pass" name="password"
-           minlength="8" required>
-</div>
-
-<input type="submit" value="Sign in">
-
-</div>
+                    <button class="btn btn-primary btn-block btn-am"> Valider </button>
+                </form>
+          
+       
 
     </body>
 </html>
+</div>
+</div>

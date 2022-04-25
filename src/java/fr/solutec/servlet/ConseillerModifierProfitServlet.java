@@ -5,13 +5,18 @@
  */
 package fr.solutec.servlet;
 
+
+import fr.solutec.dao.ConseillerDao;
+import fr.solutec.model.Conseiller;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -72,8 +77,36 @@ public class ConseillerModifierProfitServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-    }
+        Conseiller co = new Conseiller();
+
+        String nom = request.getParameter("nom");
+        String prenom = request.getParameter("prenom");
+        String mail = request.getParameter("mail");
+        LocalDate dateNaissance = LocalDate.parse(request.getParameter("dateNaissance"));
+        String telephone = request.getParameter("telephone");
+        String mdp = request.getParameter("mdp");
+        
+        HttpSession session = request.getSession();
+        Conseiller currentConseiller = (Conseiller) session.getAttribute("Conseiller");
+
+        co.setNom(nom);
+        co.setPrenom(prenom);
+        co.setMail(mail);
+        co.setDateNaissance(dateNaissance);        
+        co.setTelephone(telephone);
+        co.setMdp(mdp);
+        co.setId(currentConseiller.getId());
+
+
+        try {
+            ConseillerDao.updateConseiller(co); 
+            request.getRequestDispatcher("WEB-INF/PageConseiller.jsp").forward(request, response);
+        } catch (Exception e) {
+            PrintWriter out = response.getWriter();
+            out.println(e.getMessage());
+        }
+    } 
+    
 
     /**
      * Returns a short description of the servlet.
