@@ -62,7 +62,7 @@ public class DeconnexionServlet extends HttpServlet {
                 processRequest(request, response);
         HttpSession session = request.getSession();
         session.invalidate();
-        response.sendRedirect("LoginConseiller");
+        response.sendRedirect(" ??? "); //mettre page login ou acceuille
     }
 
     /**S
