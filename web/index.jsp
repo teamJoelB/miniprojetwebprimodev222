@@ -94,7 +94,7 @@
                         </h3>
                     </div>
                     <div class="card-footer">
-                        <a href="ConnexionAdmin" class="btn btn-outline-primary mb-2 active float-right " role="button" title="Se connecter">Se connecter</a>
+                        <a href="loginadmin" class="btn btn-outline-primary mb-2 active float-right " role="button" title="Se connecter">Se connecter</a>
                     </div>
                 </div>
             </div>
