@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="CSS/style.css">
+        <link rel="stylesheet" href="CSS/styleclient.css">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
         <!-- Google Fonts -->
@@ -16,66 +16,42 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- Bootstrap tooltips -->
         <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
         <!-- Bootstrap core JavaScript -->
         <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
         <!-- MDB core JavaScript -->
         <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
-        <title>JSP Page</title>
-        
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="accueille"><img src="contracts/img.resources/logoo.png" alt="Solutec gang banque" class="d-inline-block align-text-top w-25 h-25"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                
-           </ul>
-       </div>
-    </div>
-</nav>
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+        <title>Login Admin</title>
     </head>
+
     <body>
-        <%--
-        <h1 class="center">Helloo kikouuuu!</h1>
-        <% String nom = "Dylan";
-        out.println(nom);
-        int age = 17;
-        if (age<18){
-            out.println("<p style='color :red'> Mineur <p>");
-        }
-        else{
-            out.println("<p style ='color : green'> Majeur <p>");
-        }%>
-        
-        ${1+1}
-        
-        <script>
-            alert('DEV 222 RPZ');
-        </script>
-
-        <div>
-            <form action="/ma-page-de-traitement" method="post">
-                <div>
-                    <label for="name">Nom :</label>
-                    <input type="text" id="name" name="user_name">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="accueille"><img src="contracts/img.resources/sgbmalakoff.png" alt="Solutec gang banque" class="d-inline-block align-text-top w-25 h-25"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="faq">Qui sommes nous ?</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="faq">Pourquoi nous rejoindre ?</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">SGB dans le monde</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Nous contacter</a>
+                        </li>
+                    </ul>
                 </div>
-                <div>
-                    <label for="mail">e-mail&nbsp;:</label>
-                    <input type="email" id="mail" name="user_mail">
-                </div>
-                <div>
-                    <label for="msg">Message :</label>
-                    <textarea id="msg" name="user_message"></textarea>
-                </div>
-            </form>
-
-        </div>        
-        --%><br><br><br>
+            </div>
+        </nav>
+        <br><br><br>
         <h1><center>Espace admins/conseillers</center></h1>
         <div class="connexion-block">
             <div class="card p-3 z-depth-5">
@@ -88,11 +64,11 @@
                         <input type="password" placeholder="Password" name="mdp" class="form-control">
                     </div>
                     <button class="btn btn-primary btn-block"> Connexion </button>
-                    
+
                     <p class="text-danger">${msg}</p>
                 </form>
             </div>
-                
+
         </div>
     </body>
 </html>
