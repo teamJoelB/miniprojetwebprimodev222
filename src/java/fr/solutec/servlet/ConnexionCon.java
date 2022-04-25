@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import fr.solutec.dao.ConseillerDao;
 import fr.solutec.model.Client;
+import fr.solutec.model.Conseiller;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -76,10 +77,10 @@ public class ConnexionCon extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String mail= request.getParameter("mail");
-        String mdpp = request.getParameter("mdpp");
+        String mdp = request.getParameter("mdp");
         
         try{
-            Client c = ConseillerDao.getByMailAndPassword(mail,mdp);
+            Conseiller c = ConseillerDao.getByMailAndPassword(mail,mdp);
             if (c!= null){
                 HttpSession session = request.getSession();
                 session.setAttribute("userConnect",c);
